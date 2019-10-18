@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Cars index page</h1>
+        <ul>
+            <% for(let i = 0; i < idCars.length; i++){ %>
+                <li>
+                  The <a href="/cars/<%=cars[i]._id%>"><%=idCars[i].name; %></a> is  <%=idCars[i].color; %>.
+                  <% if(idCars[i].fourByFour === true){ %>
+                    It is ready to drive
+                  <% } else { %>
+                    It is not ready to drive
+                  <% } %>
+                </li>
+                    <form action='/cars/<%=i%>_method=DELETE' method="POST">
+                        <button type='Submit'>Delete</button>
+                    </form>
+
+                <% } %>
+            </ul>
+         <nav>
+            <a href="/cars/new">Create a New Car</a>
+        </nav>
+    </body>
+</html>
